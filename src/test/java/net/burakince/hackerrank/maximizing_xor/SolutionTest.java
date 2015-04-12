@@ -23,17 +23,17 @@ public class SolutionTest {
 	@Before
 	public void setUpStreams() {
 		System.setOut(new PrintStream(outContent));
-	    System.setErr(new PrintStream(errContent));
+		System.setErr(new PrintStream(errContent));
 	}
-	
+
 	@After
 	public void cleanUpStreams() {
 		System.err.flush();
 		System.out.flush();
 
-	    System.setOut(OUT);
-	    System.setErr(ERR);
-	    System.setIn(STDIN);
+		System.setOut(OUT);
+		System.setErr(ERR);
+		System.setIn(STDIN);
 	}
 
 	@Test
@@ -79,5 +79,5 @@ public class SolutionTest {
 
 		assertEquals(expected, outContent.toString());
 	}
-	
+
 }

@@ -17,7 +17,7 @@ public abstract class AbstractMainTests {
 	private static void recoverOriginalOutput() {
 		System.err.flush();
 		System.out.flush();
-		
+
 		System.setOut(AbstractMainTests.OUT);
 		System.setErr(AbstractMainTests.ERR);
 	}
