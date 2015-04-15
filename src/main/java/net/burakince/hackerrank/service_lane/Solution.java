@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Solution {
 
 	public static void main(String[] args) {
-		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
 
 		int serviceLaneLength = in.nextInt();
