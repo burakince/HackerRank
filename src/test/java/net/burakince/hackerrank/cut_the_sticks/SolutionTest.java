@@ -1,6 +1,6 @@
 package net.burakince.hackerrank.cut_the_sticks;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -19,6 +19,8 @@ public class SolutionTest {
 
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+
+	private Stick stick;
 
 	@Before
 	public void setUpStreams() {
@@ -56,6 +58,37 @@ public class SolutionTest {
 		Solution.main(null);
 
 		assertEquals(expected, outContent.toString());
+	}
+
+	@Test
+	public void whenCreateStick_shouldLengthEqualStartLength() throws Exception {
+		stick = new Stick(3);
+
+		assertEquals(3, stick.length());
+	}
+
+	@Test
+	public void whenCutStick_shouldLengthLower() throws Exception {
+		stick = new Stick(3);
+		stick.cut(2);
+
+		assertEquals(1, stick.length());
+	}
+
+	@Test
+	public void whenCutStickLowerrThanLength_shouldHaveStick() throws Exception {
+		stick = new Stick(3);
+		stick.cut(2);
+
+		assertEquals(false, stick.isNotLeft());
+	}
+
+	@Test
+	public void whenCutStickHigherThanLength_shouldDontHaveStickAnymore() throws Exception {
+		stick = new Stick(3);
+		stick.cut(3);
+
+		assertEquals(true, stick.isNotLeft());
 	}
 
 }

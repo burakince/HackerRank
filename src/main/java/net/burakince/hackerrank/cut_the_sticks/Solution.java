@@ -1,6 +1,7 @@
 package net.burakince.hackerrank.cut_the_sticks;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,44 +12,62 @@ public class Solution {
 		Scanner in = new Scanner(System.in);
 
 		int sticksCount = in.nextInt();
-		int[] sticks = new int[sticksCount];
+		List<Stick> sticks = new ArrayList<Stick>();
 		StringBuffer stickCounts = new StringBuffer();
 
 		for (int i = 0; i < sticksCount; i++)
-			sticks[i] = in.nextInt();
+			sticks.add(new Stick(in.nextInt()));
 
-		while (sticks.length > 0) {
-			stickCounts.append(sticks.length);
+		while (!sticks.isEmpty()) {
+			stickCounts.append(sticks.size());
 			stickCounts.append("\n");
 
 			int lowestLength = findLowestLength(sticks);
 
-			List<Integer> tempSticks = new ArrayList<Integer>();
+			for (Stick stick : sticks)
+				stick.cut(lowestLength);
 
-			for (int i = 0; i < sticks.length; i++) {
-				int newLength = sticks[i] - lowestLength;
-				if (newLength > 0)
-					tempSticks.add(newLength);
+			Iterator<Stick> stickIterator = sticks.iterator();
+			while (stickIterator.hasNext()) {
+				Stick stick = stickIterator.next();
+				if (stick.isNotLeft())
+					stickIterator.remove();
 			}
-
-			int i = 0;
-			sticks = new int[tempSticks.size()];
-
-			for (Integer tempStick : tempSticks)
-				sticks[i++] = tempStick;
 		}
 
 		System.out.print(stickCounts);
 	}
 
-	private static int findLowestLength(int[] sticks) {
-		int lowestLength = sticks[0];
+	private static int findLowestLength(List<Stick> sticks) {
+		int lowestLength = Integer.MAX_VALUE;
 
-		for (int i = 1; i < sticks.length; i++)
-			if (sticks[i] < lowestLength)
-				lowestLength = sticks[i];
+		for (Stick stick : sticks)
+			if (stick.length() < lowestLength)
+				lowestLength = stick.length();
 
 		return lowestLength;
+	}
+
+}
+
+class Stick {
+
+	private int length;
+
+	public Stick(int length) {
+		this.length = length;
+	}
+	
+	public boolean isNotLeft() {
+		return length < 1;
+	}
+
+	public void cut(int length) {
+		this.length -= length;
+	}
+
+	public int length() {
+		return length;
 	}
 
 }
