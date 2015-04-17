@@ -20,12 +20,23 @@ public class Solution {
 			int half = (number % 2 == 0 ? number / 2 : (number / 2) + 1);
 
 			for (int x = 0, y = number; x < half; x++, y--) {
-				result.append(x + " " + y + "\n");
-				result.append(y + " " + x + "\n");
+				result.append(x);
+				result.append(" ");
+				result.append(y);
+				result.append("\n");
+
+				result.append(y);
+				result.append(" ");
+				result.append(x);
+				result.append("\n");
 			}
 
-			if (number % 2 == 0)
-				result.append(half + " " + half + "\n");
+			if (number % 2 == 0) {
+				result.append(half);
+				result.append(" ");
+				result.append(half);
+				result.append("\n");
+			}
 		}
 
 		System.out.print(result);
