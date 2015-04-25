@@ -3,38 +3,12 @@ package net.burakince.hackerrank.tech_weekend_online_coding.sachi_and_her_angles
 import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.PrintStream;
 
-import org.junit.After;
-import org.junit.Before;
+import net.burakince.hackerrank.HacerRankTestCase;
+
 import org.junit.Test;
 
-public class SolutionTest {
-
-	private static final InputStream STDIN = System.in;
-	private static final PrintStream OUT = System.out;
-	private static final PrintStream ERR = System.err;
-
-	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
-
-	@Before
-	public void setUpStreams() {
-		System.setOut(new PrintStream(outContent));
-		System.setErr(new PrintStream(errContent));
-	}
-
-	@After
-	public void cleanUpStreams() {
-		System.err.flush();
-		System.out.flush();
-
-		System.setOut(OUT);
-		System.setErr(ERR);
-		System.setIn(STDIN);
-	}
+public class SolutionTest extends HacerRankTestCase {
 
 	@Test
 	public void whenTakeThreeAngle_shouldTotalAngle180() throws Exception {
