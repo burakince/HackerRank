@@ -15,11 +15,9 @@ public class Solution {
 		int result = length;
 		for (int subStringLen = 2; subStringLen <= length; subStringLen++) {
 			int maxIndex = length - subStringLen;
+			int subStrLen = subStringLen - 1;
 			for (int startIndex = 0; startIndex <= maxIndex; startIndex++) {
-				int endIndex = startIndex + subStringLen - 1;
-				char startChar = str[startIndex];
-				char endChar = str[endIndex];
-				if (startChar == endChar) {
+				if (str[startIndex] == str[startIndex + subStrLen]) {
 					result++;
 				}
 			}
