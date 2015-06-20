@@ -54,4 +54,15 @@ public class SolutionTest extends HacerRankTestCase {
 		assertEquals(expected, outContent.toString());
 	}
 
+	@Test
+	public void whenTakeBigValuesShouldReturnResult() throws Exception {
+		String systemInput = "10 1000000000 100\n1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000\n";
+		String expected = "1";
+
+		System.setIn(new ByteArrayInputStream(systemInput.getBytes()));
+		Solution.main(null);
+
+		assertEquals(expected, outContent.toString());
+	}
+
 }
