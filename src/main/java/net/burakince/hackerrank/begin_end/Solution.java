@@ -10,33 +10,22 @@ public class Solution {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		int length = Integer.parseInt(br.readLine());
-		String str = br.readLine();
-		int result = 0;
+		char[] str = br.readLine().toCharArray();
 
-		for (int subStringLen = 1; subStringLen <= length; subStringLen++) {
+		int result = length;
+		for (int subStringLen = 2; subStringLen <= length; subStringLen++) {
 			int maxIndex = length - subStringLen;
 			for (int startIndex = 0; startIndex <= maxIndex; startIndex++) {
-				int endIndex = startIndex + subStringLen;
-				String subString;
-				if (endIndex > length) {
-					subString = str.substring(startIndex);
-				} else {
-					subString = str.substring(startIndex, endIndex);
-				}
-				if (isTrue(subString, subStringLen)) {
+				int endIndex = startIndex + subStringLen - 1;
+				char startChar = str[startIndex];
+				char endChar = str[endIndex];
+				if (startChar == endChar) {
 					result++;
 				}
 			}
 		}
 
 		System.out.print(result);
-	}
-
-	private static boolean isTrue(String subString, int len) {
-		if (len == 1) {
-			return true;
-		}
-		return subString.charAt(0) == subString.charAt(subString.length() - 1);
 	}
 
 }
