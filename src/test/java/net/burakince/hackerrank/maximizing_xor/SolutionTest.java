@@ -4,11 +4,11 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayInputStream;
 
-import net.burakince.hackerrank.HacerRankTestCase;
+import net.burakince.hackerrank.HackerRankTestCase;
 
 import org.junit.Test;
 
-public class SolutionTest extends HacerRankTestCase {
+public class SolutionTest extends HackerRankTestCase {
 
 	@Test
 	public void whenTake10And10_shouldGive0() throws Exception {

@@ -2,11 +2,11 @@ package net.burakince.hackerrank.print_the_array;
 
 import static org.junit.Assert.*;
 
-import net.burakince.hackerrank.HacerRankTestCase;
+import net.burakince.hackerrank.HackerRankTestCase;
 
 import org.junit.Test;
 
-public class PrinterTest extends HacerRankTestCase {
+public class PrinterTest extends HackerRankTestCase {
 
 	@Test
 	public void whenGiveIntegerValuesShouldPrintThem() throws Exception {

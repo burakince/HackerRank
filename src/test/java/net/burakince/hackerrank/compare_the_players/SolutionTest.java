@@ -6,9 +6,9 @@ import java.io.ByteArrayInputStream;
 
 import org.junit.Test;
 
-import net.burakince.hackerrank.HacerRankTestCase;
+import net.burakince.hackerrank.HackerRankTestCase;
 
-public class SolutionTest extends HacerRankTestCase {
+public class SolutionTest extends HackerRankTestCase {
 
 	@Test
 	public void shouldPrintHigherScoreFirst() throws Exception {

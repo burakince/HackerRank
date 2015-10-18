@@ -7,7 +7,7 @@ import java.io.PrintStream;
 import org.junit.After;
 import org.junit.Before;
 
-public class HacerRankTestCase {
+public class HackerRankTestCase {
 
 	private static final InputStream STDIN = System.in;
 	private static final PrintStream OUT = System.out;
