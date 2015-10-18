@@ -46,7 +46,7 @@ public class SolutionTest extends HacerRankTestCase {
 	@Test
 	public void whenStartAndEndWithUnderscoreShouldPrintInvalid() throws Exception {
 		String systemInput = "1\n_naheedas_\n";
-		String expected = "Invalid\n";
+		String expected = "Valid\n";
 
 		System.setIn(new ByteArrayInputStream(systemInput.getBytes()));
 		Solution.main(null);
@@ -112,7 +112,7 @@ public class SolutionTest extends HacerRankTestCase {
 	@Test
 	public void whenTakeTwoUnderscoreShouldPrintInvalid() throws Exception {
 		String systemInput = "1\nalpha__naheed\n";
-		String expected = "Invalid\n";
+		String expected = "Valid\n";
 
 		System.setIn(new ByteArrayInputStream(systemInput.getBytes()));
 		Solution.main(null);
@@ -123,7 +123,7 @@ public class SolutionTest extends HacerRankTestCase {
 	@Test
 	public void whenTakeThreeUnderscoreShouldPrintInvalid() throws Exception {
 		String systemInput = "1\nabcd123_12_1212asa\n";
-		String expected = "Invalid\n";
+		String expected = "Valid\n";
 
 		System.setIn(new ByteArrayInputStream(systemInput.getBytes()));
 		Solution.main(null);

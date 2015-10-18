@@ -11,7 +11,7 @@ public class Solution {
 		int testCases = Integer.parseInt(in.nextLine());
 		while (testCases > 0) {
 			String username = in.nextLine();
-			String pattern = "^(?=.{8,30}$)(?![0-9])[a-zA-Z0-9]{0,}[_]{0,1}[a-zA-Z0-9]{0,}$";
+			String pattern = "^(?=.{8,30}$)(?![0-9])[a-zA-Z0-9_]*$";
 			Pattern r = Pattern.compile(pattern);
 			Matcher m = r.matcher(username);
 
