@@ -32,4 +32,26 @@ public class SolutionTest extends HackerRankTestCase {
 		assertEquals(expected, outContent.toString());
 	}
 
+	@Test
+	public void whenTakeReversedFiveCharsShouldPrintFunny() throws Exception {
+		String systemInput = "1\nholtm\n";
+		String expected = "Not Funny\n";
+
+		System.setIn(new ByteArrayInputStream(systemInput.getBytes()));
+		Solution.main(null);
+
+		assertEquals(expected, outContent.toString());
+	}
+
+	@Test
+	public void whenTakeTwoCharsShouldPrintFunny() throws Exception {
+		String systemInput = "1\n10\n";
+		String expected = "Funny\n";
+
+		System.setIn(new ByteArrayInputStream(systemInput.getBytes()));
+		Solution.main(null);
+
+		assertEquals(expected, outContent.toString());
+	}
+	
 }

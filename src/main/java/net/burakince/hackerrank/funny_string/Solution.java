@@ -25,7 +25,9 @@ public class Solution {
 	}
 
 	private static boolean isFunny(char[] chars, int i, int j) {
-		return ((int) chars[i + 1] - (int) chars[i]) == ((int) chars[j] - (int)chars[j - 1]);
+		int left = ((int) chars[i + 1] - (int) chars[i]);
+		int right = ((int) chars[j] - (int)chars[j - 1]);
+		return left == right || left == right * -1;
 	}
 
 }
