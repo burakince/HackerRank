@@ -4,24 +4,6 @@ import java.util.Scanner;
 
 public class Solution {
 
-	public static boolean move(int[] array, int position, int m) {
-		if (array.length <= position + m) {
-			return true;
-		}
-		array[position] = 1;
-		boolean hasEscaped = false;
-		if (position + m < array.length && 0 == array[position + m]) {
-			hasEscaped = move(array, position + m, m);
-		}
-		if (!hasEscaped && position + 1 < array.length && 0 == array[position + 1]) {
-			hasEscaped = move(array, position + 1, m);
-		}
-		if (!hasEscaped && 0 <= position - 1 && 0 == array[position - 1]) {
-			hasEscaped = move(array, position - 1, m);
-		}
-		return hasEscaped;
-	}
-
 	public static void main(final String[] args) {
 		final Scanner sc = new Scanner(System.in);
 		final int tests = sc.nextInt();
@@ -35,9 +17,32 @@ public class Solution {
 			if (array[0] == 1) {
 				System.out.println("NO");
 			} else {
-				System.out.println(move(array, 0, m) ? "YES" : "NO");
+				System.out.println(move(array, m, 0, array) ? "YES" : "NO");
 			}
 		}
 		sc.close();
 	}
+
+	private static boolean move(int[] array, int jump, int start, int[] arrayBackup) {
+		boolean result = false;
+		arrayBackup[start] = -1;
+		if (start + jump >= array.length || start + 1 >= array.length) {
+			return true;
+		} else if (array[start + 1] == 1 && array[start + jump] == 1 && start - 1 > 0 && array[start - 1] == 1) {
+			array[start] = 1;
+			return false;
+		} else {
+			if (!result && array[start + jump] == 0 && arrayBackup[start + jump] == 0) {
+				result = move(array, jump, start + jump, arrayBackup);
+			}
+			if (!result && array[start + 1] == 0 && arrayBackup[start + 1] == 0) {
+				result = move(array, jump, start + 1, arrayBackup);
+			}
+			if (!result && start - 1 > 0 && array[start - 1] == 0 && arrayBackup[start - 1] == 0) {
+				result = move(array, jump, start - 1, arrayBackup);
+			}
+		}
+		return result;
+	}
+
 }
