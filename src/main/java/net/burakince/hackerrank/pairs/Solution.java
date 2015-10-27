@@ -1,8 +1,6 @@
 package net.burakince.hackerrank.pairs;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Solution {
@@ -11,16 +9,16 @@ public class Solution {
 		final Scanner sc = new Scanner(System.in);
 		final int size = sc.nextInt();
 		final int difference = sc.nextInt();
-		final List<Integer> numbers = new ArrayList<Integer>(size);
+		final int[] numbers = new int[size];
 		for (int i = 0; i < size; i++) {
-			numbers.add(sc.nextInt());
+			numbers[i] = sc.nextInt();
 		}
 		sc.close();
 
-		Collections.sort(numbers);
+		Arrays.sort(numbers);
 		int pairs = 0;
-		for (Integer n : numbers) {
-			if (numbers.contains(n + difference)) {
+		for (int n : numbers) {
+			if (Arrays.binarySearch(numbers, n + difference) >= 0) {
 				pairs++;
 			}
 		}
