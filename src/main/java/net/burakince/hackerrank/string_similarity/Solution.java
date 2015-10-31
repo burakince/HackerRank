@@ -10,15 +10,22 @@ public class Solution {
 		while (0 < tests--) {
 			final char[] line = sc.nextLine().toCharArray();
 			final int length = line.length;
-			int total = length;
-			for (int i = 1; i < length; i++) {
-				int j = 0;
-				for (; j < length - i; j++) {
-					if (line[j] != line[j + i]) {
-						break;
-					}
+			final int[] zscore = new int[length];
+			for (int i = 1, left = 0, right = 0; i < length; ++i) {
+				if (i <= right) {
+					zscore[i] = Math.min(right - i + 1, zscore[i - left]);
 				}
-				total += j;
+				while (i + zscore[i] < length && line[zscore[i]] == line[i + zscore[i]]) {
+					++zscore[i];
+				}
+				if (i + zscore[i] - 1 > right) {
+					left = i;
+					right = i + zscore[i] - 1;
+				}
+			}
+			long total = length;
+			for (int i = 0; i < length; i++) {
+				total += zscore[i];
 			}
 			System.out.println(total);
 		}
