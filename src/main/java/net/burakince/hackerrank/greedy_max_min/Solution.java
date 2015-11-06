@@ -17,18 +17,14 @@ public class Solution {
 
 		Arrays.sort(numbers);
 
-		int difference = Integer.MAX_VALUE;
-		int max = 0;
-		int min = 0;
+		int unfairness = Integer.MAX_VALUE;
 		for (int i = 0; i < length - k; i++) {
 			int newDiff = numbers[i + k] - numbers[i];
-			if (difference > newDiff) {
-				difference = newDiff;
-				max = numbers[i + k];
-				min = numbers[i];
+			if (unfairness > newDiff) {
+				unfairness = newDiff;
 			}
 		}
-		System.out.println(max - min);
+		System.out.println(unfairness);
 	}
 
 }
