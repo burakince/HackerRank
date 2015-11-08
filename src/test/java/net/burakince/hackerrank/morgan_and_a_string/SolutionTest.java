@@ -55,4 +55,14 @@ public class SolutionTest extends HackerRankTestCase {
 		assertEquals(expected, outContent.toString());
 	}
 
+	@Test
+	public void should_pass_testcase_10() throws Exception {
+		String expected = readStringLines(new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("output10.txt"))));
+
+		System.setIn(getClass().getResourceAsStream("input10.txt"));
+		Solution.main(null);
+
+		assertEquals(expected, outContent.toString());
+	}
+
 }

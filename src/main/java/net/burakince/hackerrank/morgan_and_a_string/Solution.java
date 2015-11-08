@@ -21,7 +21,7 @@ public class Solution {
 				} else if (line2[j] < line1[i]) {
 					resultLine[k] = line2[j++];
 				} else if (line1[i] == line2[j]) {
-					int result = compareTo(line1, i, line2, j);
+					int result = compareTo(line1, i, line2, j, 50);
 					if (result < 1) {
 						resultLine[k] = line1[i++];
 					} else {
@@ -34,8 +34,8 @@ public class Solution {
 		sc.close();
 	}
 
-	private static int compareTo(char[] line1, int index1, char[] line2, int index2) {
-		for (int i = index1, j = index2; i < line1.length && j < line2.length; i++, j++) {
+	private static int compareTo(char[] line1, int index1, char[] line2, int index2, int max) {
+		for (int i = index1, j = index2, m = 0; i < line1.length && j < line2.length && m < max; i++, j++, m++) {
 			if (line1[i] < line2[j]) {
 				return -1;
 			} else if (line1[i] > line2[j]) {
