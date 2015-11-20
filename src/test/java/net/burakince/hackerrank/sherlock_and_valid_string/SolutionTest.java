@@ -2,13 +2,11 @@ package net.burakince.hackerrank.sherlock_and_valid_string;
 
 import static org.junit.Assert.assertEquals;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
-import java.io.InputStreamReader;
-
-import org.junit.Test;
 
 import net.burakince.hackerrank.HackerRankTestCase;
+
+import org.junit.Test;
 
 public class SolutionTest extends HackerRankTestCase {
 
@@ -69,7 +67,7 @@ public class SolutionTest extends HackerRankTestCase {
 
 	@Test
 	public void should_pass_testcase_11() throws Exception {
-		String expected = readStringLines(new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("output11.txt"))));
+		String expected = "YES\n";
 
 		System.setIn(getClass().getResourceAsStream("input11.txt"));
 		Solution.main(null);
