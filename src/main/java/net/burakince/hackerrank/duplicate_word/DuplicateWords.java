@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class DuplicateWords {
 
 	public static void main(String[] args) {
-		String pattern = "(^|\\s)([^\\s]+)\\s\\2(\\s|$)";
+		String pattern = "(\\b\\w+\\b)(\\s*\\1\\b)+";
 		Pattern r = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE);
 
 		final Scanner sc = new Scanner(System.in);
@@ -16,8 +16,7 @@ public class DuplicateWords {
 			String line = sc.nextLine();
 			Matcher m = r.matcher(line);
 			while (m.find()) {
-				line = m.replaceFirst(m.group(1) + m.group(2) + m.group(3));
-				m = r.matcher(line);
+				line = line.replaceAll(m.group(), m.group(1));
 			}
 			System.out.println(line);
 		}
