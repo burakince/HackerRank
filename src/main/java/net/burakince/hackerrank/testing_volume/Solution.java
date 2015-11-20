@@ -67,7 +67,7 @@ public class Solution {
 
 	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
-		Do_Not_Terminate.forbidExit();
+//		Do_Not_Terminate.forbidExit();
 		try {
 			Calculate cal = new Calculate();
 			int T = cal.getINTVal();

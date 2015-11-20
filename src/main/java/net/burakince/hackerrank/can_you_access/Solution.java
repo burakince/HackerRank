@@ -8,7 +8,7 @@ import java.security.Permission;
 public class Solution {
 
 	public static void main(String[] args) throws Exception {
-		Do_Not_Terminate.forbidExit();
+//		Do_Not_Terminate.forbidExit();
 
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
